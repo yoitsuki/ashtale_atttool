@@ -1,6 +1,11 @@
 input[type="number"] { width: 8em; }
+
+body{
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 table{
-  width: 60%;
+  width: 100%;
   border-collapse: collapse;
 }
 
