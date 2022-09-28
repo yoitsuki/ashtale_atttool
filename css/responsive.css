@@ -4,6 +4,11 @@
     main {
         width: 100%;
     }
+
+    table {
+        margin: auto;
+    }
+    
     .last td:last-child {
         border-bottom: solid 1px #ccc;
         width: 100%;
