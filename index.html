@@ -39,58 +39,60 @@
 
 
   <h3>ステータス指定＆計算</h3>
-  <table>
+
+  <table class="tbl-r02">
     <tr>
       <th>攻撃力</th>
-      <th><input type="number" id="att1" class="num-only" min="1" placeholder="ここに入力" /></th>
+      <td><input type="number" id="att1" class="num-only" min="1" placeholder="ここに入力" /></td>
       <td><span id="result1">---</span></td>
     </tr>
     <tr>
       <th>ダメージ倍率</th>
-      <th><input type="number" id="att2" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" /></th>
+      <td><input type="number" id="att2" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" /></td>
       <td><span id="result2">---</span></td>
     </tr>
     <tr>
       <th>与ダメージ増加</th>
-      <th><input type="number"id="att3" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number"id="att3" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result3">---</span></td>
     </tr>
     <tr>
       <th>会心ダメージ</th>
-      <th><input type="number" id="att4" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number" id="att4" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result4">---</span></td>
     </tr>
     <tr>
       <th>防御無視</th>
-      <th><input type="number" id="att5" class="num-only" min="0.01" step="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number" id="att5" class="num-only" min="0.01" step="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result5">---</span></td>
     </tr>
     <tr>
       <th>対ボス与ダメ増</th>
-      <th><input type="number" id="att6" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number" id="att6" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result6">---</span></td>
     </tr>
     <tr>
       <th>状態異常与ダメ増</th>
-      <th><input type="number" id="att7" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number" id="att7" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result7">---</span></td>
     </tr>
     <tr>
       <th>対高HP与ダメ増</th>
-      <th><input type="number" id="att8" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number" id="att8" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result8">---</span></td>
     </tr>
     <tr>
       <th>対低HP与ダメ増</th>
-      <th><input type="number" id="att9" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><input type="number" id="att9" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</td>
       <td><span id="result9">---</span></td>
     </tr>
     <tr>
       <th>算出値：基礎攻撃力</th>
-      <th></th>
+      <td></td>
       <td><span id="result10">---</span></td>
     </tr>
   </table>
+
   <br />
   <input type="button" value="計算" id="send_st" />
   <input type="button" value="表示された結果をコピー" id="copy_st" />
