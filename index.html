@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="robots" content="nofollow">
+<title>アッシュテイル ダメージ増加率計算</title>
+<style type="text/css">
+input[type="number"] { width: 8em; }
+table{
+  width: 600px;
+  border-collapse: collapse;
+}
+
+table tr{
+  border-bottom: solid 2px white;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  text-align: left;
+  background-color: #9db6ee;
+  color: white;
+  text-align: left;
+  padding: 5px;
+}
+
+table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #9db6ee;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+table td{
+  text-align: left;
+  text-align: center;
+  background-color: rgb(255, 223, 181);
+  width:30%;
+  padding: 0px;
+}
+
+code {
+  display: inline-block;
+  padding: 0.5em 0.5em; /* 文字周りの余白 */
+  color: #444; /* 文字色 */
+  background-color: #e7edf3; /* 背景色 */
+  border-radius: 3px; /* 角丸 */
+  border: solid 1px #d6dde4; /* 枠線 */
+}
+</style>
+</head>
+<body>
+
+  <h1>ダメージ増加率計算</h1>
+  <p>
+    攻撃を1%増加するのと同等の他ステ増加率を概算で計算します。<br />
+    自身のステータスを入力し、[計算]ボタンを押してください。
+  </p>
+  <p>
+    ダメージ計算式は略式として以下を採用しています。<br />
+    ※倍率計算のため、スキル倍率、最終ダメージは無視しています。<br />
+    ▼ダメージ計算式(略式)<br />
+    <code>攻撃力計算式×ダメージ倍率×与ダメージ増加×（状態異常与ダメ増＋対高HP与ダメ増＋対低HP与ダメ増）×会心ダメージ×対ボス与ダメ増</code><br />
+    ▼攻撃力計算式<br />
+    <code>(攻撃力×攻撃力)÷（攻撃力＋（敵防御力×（1 - （防御無視）））</code>
+  </p>
+
+  <h3>初期設定</h3>
+  <p>
+    敵防御 <input type="number" value="63000" id="def1" class="num-only" /><br />
+    ※参考<br />
+    星座17：63,000<br />
+    星座16：182,000<br />
+  </p>
+
+
+  <h3>ステータス指定＆計算</h3>
+  <table>
+    <tr>
+      <th>攻撃力</th>
+      <th><input type="number" id="att1" class="num-only" min="1" placeholder="ここに入力" /></th>
+      <td><span id="result1">---</span></td>
+    </tr>
+    <tr>
+      <th>ダメージ倍率</th>
+      <th><input type="number" id="att2" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" /></th>
+      <td><span id="result2">---</span></td>
+    </tr>
+    <tr>
+      <th>与ダメージ増加</th>
+      <th><input type="number"id="att3" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result3">---</span></td>
+    </tr>
+    <tr>
+      <th>会心ダメージ</th>
+      <th><input type="number" id="att4" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result4">---</span></td>
+    </tr>
+    <tr>
+      <th>防御無視</th>
+      <th><input type="number" id="att5" class="num-only" min="0.01" step="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result5">---</span></td>
+    </tr>
+    <tr>
+      <th>対ボス与ダメ増</th>
+      <th><input type="number" id="att6" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result6">---</span></td>
+    </tr>
+    <tr>
+      <th>状態異常与ダメ増</th>
+      <th><input type="number" id="att7" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result7">---</span></td>
+    </tr>
+    <tr>
+      <th>対高HP与ダメ増</th>
+      <th><input type="number" id="att8" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result8">---</span></td>
+    </tr>
+    <tr>
+      <th>対低HP与ダメ増</th>
+      <th><input type="number" id="att9" class="num-only" step="0.01" min="0.01" placeholder="ここに入力" />%</th>
+      <td><span id="result9">---</span></td>
+    </tr>
+    <tr>
+      <th>算出値：基礎攻撃力</th>
+      <th></th>
+      <td><span id="result10">---</span></td>
+    </tr>
+  </table>
+  <br />
+  <input type="button" value="計算" id="send_st" />
+  <input type="button" value="表示された結果をコピー" id="copy_st" />
+
+  <!-- javascript -->
+  <!-- ライブラリ読み込み -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+  <!-- jsファイル読み込み -->
+  <script src="./js/attcalc.js"></script>
+</body>
+</html>
