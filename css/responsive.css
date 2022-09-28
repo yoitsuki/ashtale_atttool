@@ -4,17 +4,13 @@
         width: 100%;
     }
 
-    button {
-        font-size: 1.5em;
-    }
-
     .last td:last-child {
         border-bottom: solid 1px #ccc;
         width: 100%;
     }
 
     .tbl-r02 {
-        width: 80%;
+        width: 100%;
     }
 
     .tbl-r02 th,
@@ -22,5 +18,9 @@
         border-bottom: none;
         display: block;
         width: 100%;
+    }
+
+    button {
+        font-size: 1.5em;
     }
 }
