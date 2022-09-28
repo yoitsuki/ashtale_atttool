@@ -7,6 +7,11 @@ body{
 table {
   margin: 20px auto;
 }
+
+div {
+    text-align:center;
+}
+
 .tbl-r02 th {
   background: #92C2FF;
   border: solid 1px #ccc;
