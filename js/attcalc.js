@@ -92,7 +92,7 @@ $('#copy_st').click(function(e){
                   +"状態異常与ダメ増\t"+document.getElementById("att7").value+"\t"+document.getElementById("result7").textContent+"\n"
                   +"対高HP与ダメ増\t"+document.getElementById("att8").value+"\t"+document.getElementById("result8").textContent+"\n"
                   +"対低HP与ダメ増\t"+document.getElementById("att9").value+"\t"+document.getElementById("result9").textContent+"\n"
-                  +"基礎攻撃力\t"+"\t"+document.getElementById("result10").value;
+                  +"基礎攻撃力\t"+"\t"+document.getElementById("result10").textContent;
 
   //ブラウザの対応状況で分岐
   if(navigator.clipboard){
