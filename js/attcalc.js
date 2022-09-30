@@ -24,6 +24,25 @@ $(document).ready( function(){
   document.getElementById("att8").value = cookie_var===undefined ? "" : cookie_var;
   cookie_var = Cookies.get('att9_before');
   document.getElementById("att9").value = cookie_var===undefined ? "" : cookie_var;
+  //入力値(結果テーブル)
+  cookie_var = Cookies.get('att1_before');
+  document.getElementById("input1").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att2_before');
+  document.getElementById("input2").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att3_before');
+  document.getElementById("input3").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att4_before');
+  document.getElementById("input4").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att5_before');
+  document.getElementById("input5").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att6_before');
+  document.getElementById("input6").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att7_before');
+  document.getElementById("input7").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att8_before');
+  document.getElementById("input8").textContent = cookie_var===undefined ? "" : cookie_var;
+  cookie_var = Cookies.get('att9_before');
+  document.getElementById("input9").textContent = cookie_var===undefined ? "" : cookie_var;
   //結果
   cookie_var = Cookies.get('att1_after');
   document.getElementById("result1").textContent = cookie_var===undefined ? "---" : cookie_var+" または攻撃1%";
@@ -127,32 +146,41 @@ function clickBtn1() {
   var result_st; //結果保存用
   const exp_date = 1; //cookieの保持日数
 
-  //データを入手
+  //データの入手と結果への出力
   var df1 = Number(document.getElementById("def1").value); //敵防御力
   Cookies.set('def1', df1);
   var at1 = Number(document.getElementById("att1").value); //攻撃力
+  document.getElementById("input1").textContent = at1;
   Cookies.set('att1_before', at1, {expires: exp_date});
   var at2 = Number(document.getElementById("att2").value); //ダメージ倍率
+  document.getElementById("input2").textContent = at2;
   Cookies.set('att2_before', at2, {expires: exp_date});
   var at3 = Number(document.getElementById("att3").value); //与ダメージ増加
+  document.getElementById("input3").textContent = at3;
   Cookies.set('att3_before', at3, {expires: exp_date});
   at3 = at3*0.01;
   var at4 = Number(document.getElementById("att4").value); //会心ダメージ
+  document.getElementById("input4").textContent = at4;
   Cookies.set('att4_before', at4, {expires: exp_date});
   at4 = at4*0.01;
   var at5 = Number(document.getElementById("att5").value); //防御無視
+  document.getElementById("input5").textContent = at5;
   Cookies.set('att5_before', at5, {expires: exp_date});
   at5 = at5*0.01;
   var at6 = Number(document.getElementById("att6").value); //対ボス与ダメ増
+  document.getElementById("input6").textContent = at6;
   Cookies.set('att6_before', at6, {expires: exp_date});
   at6 = at6*0.01;
   var at7 = Number(document.getElementById("att7").value); //状態異常与ダメ増
+  document.getElementById("input7").textContent = at7;
   Cookies.set('att7_before', at7, {expires: exp_date});
   at7 = at7*0.01;
   var at8 = Number(document.getElementById("att8").value); //対高HP与ダメ増
+  document.getElementById("input8").textContent = at8;
   Cookies.set('att8_before', at8, {expires: exp_date});
   at8 = at8*0.01;
   var at9 = Number(document.getElementById("att9").value); //対低HP与ダメ増
+  document.getElementById("input9").textContent = at9;
   Cookies.set('att9_before', at9, {expires: exp_date});
   at9 = at9*0.01;
 
@@ -169,7 +197,7 @@ function clickBtn1() {
   //結果の計算と出力、cookieへの保存
   //攻撃力
   result_st = numRound(at1*diam-at1, flo);
-  document.getElementById("result1").textContent = result_st + " または攻撃1%";
+  document.getElementById("result1").textContent = result_st + " or 1%";
   Cookies.set('att1_after', result_st, {expires: exp_date});
   //ダメージ倍率
   diam_otr = att_predict101/att_predict

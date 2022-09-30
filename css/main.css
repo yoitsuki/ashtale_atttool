@@ -1,25 +1,83 @@
-input[type="number"] { width: 8em; }
-
 body{
     font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.25;
+  }
+
+h2 {
+  position: relative;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
 }
 
-.tbl-r02 th {
-  background: #92C2FF;
-  border: solid 1px #ccc;
-  color: #fff;
-  padding: 5px;
-}
-.tbl-r02 td {
-  border: solid 1px #ccc;
-  padding: 5px;
+h2:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 15px 15px;
+  border-style: solid;
+  border-color: #fff #fff #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-code {
+h3 {
+  margin-top:40px;
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}
+  code {
   display: inline-block;
   padding: 0.5em 0.5em; /* 文字周りの余白 */
   color: #444; /* 文字色 */
   background-color: #e7edf3; /* 背景色 */
   border-radius: 3px; /* 角丸 */
   border: solid 1px #d6dde4; /* 枠線 */
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 650px;
+      box-shadow: 0 0 15px -6px #00000073;
+}
+table tr {
+  background-color: #fff;
+}
+table tbody tr:hover{
+  background-color: #fffae9;
+}
+table th,
+table td {
+  padding: .35em 1em;
+  border-bottom: 1px solid #eee;
+}
+table thead th {
+    font-size: .85em;
+    padding: 1em;
+}
+table thead tr{
+  background-color: #359df2;
+  color:#fff;
+}
+table tbody th {
+  text-align: left;
+  font-size: .8em;
+}
+.txt{
+   text-align: right;
+   font-size: .75em;
+}
+.price{
+  text-align: right;
+  color: #000;
+  font-weight: bold;
+}
+@media screen and (max-width: 600px) {
+  table{
+    width: 100%;
+    margin: 0 auto;
+  }
 }
