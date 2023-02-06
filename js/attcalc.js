@@ -83,7 +83,7 @@ $('#send_st').click(function(e){
     return e.preventDefault();
   }else{
     clickBtn1();
-    clickBtn2();
+    // clickBtn2();
   }
 });
 
