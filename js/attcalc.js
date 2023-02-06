@@ -83,7 +83,6 @@ $('#send_st').click(function(e){
     return e.preventDefault();
   }else{
     clickBtn1();
-    // clickBtn2();
   }
 });
 
@@ -247,35 +246,8 @@ function clickBtn1() {
   Cookies.set('att9_after', result_st, {expires: exp_date});
   //基礎攻撃力
   result_st = numFloor(att_predict101,100)
-  result_st = Math.floor(result_st) //小数点四捨五入
-  document.getElementById("result10").textContent = Number(result_st).toLocaleString();
+  document.getElementById("result10").textContent = result_st;
   Cookies.set('att10_after', result_st, {expires: exp_date});
-}
-
-/**
- * ボタン押下時にスクリーンショットを撮る
- * @param {number} value 切り捨てする数値
- * @param {number} base どの桁で切り捨てするか（100→小数点第二位、0.1→10の位）
- * @return {number} 切り捨てした値
- */
-function clickBtn2() {
-      //HTML内に画像を表示
-      html2canvas(document.getElementById("target"),{
-        onrendered: function(canvas){
-          //imgタグのsrcの中に、html2canvasがレンダリングした画像を指定する。
-          var imgData = canvas.toDataURL();
-          document.getElementById("result").src = imgData;
-        }
-      });
-
-      //ボタンを押下した際にダウンロードする画像を作る
-      html2canvas(document.body,{
-        onrendered: function(canvas){
-          //aタグのhrefにキャプチャ画像のURLを設定
-          var imgData = canvas.toDataURL();
-          document.getElementById("ss").href = imgData;
-        }}
-      });
 }
 
 /**
