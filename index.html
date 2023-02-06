@@ -85,6 +85,7 @@
     <input type="button" class="Form-Btn" value="計算する" id="send_st" />
   </div>
 
+  <div class="target">
   <h3>■結果</h3>
   <table>
     <thead>
@@ -147,14 +148,25 @@
       </tr>
     </tbody>
   </table>   
+  </div>
   <div class="Form">
-    <input type="button" class="Form-Btn" value="結果をコピー" id="copy_st" />
+    <!--
+      <input type="button" class="Form-Btn" value="結果をコピー" id="copy_st" />
+    -->
+    <a href="" id="ss" download="html_ss.png">スクリーンショット(document.body全体)をダウンロード</a>
   </div>
 
+  <img src="" id="result" />
+
+  <hr>
+
+
+  
   <!-- javascript -->
   <!-- ライブラリ読み込み -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.4/js.cookie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
   <!-- jsファイル読み込み -->
   <script src="./js/attcalc.js"></script>
 </body>
