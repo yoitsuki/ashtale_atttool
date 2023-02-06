@@ -246,7 +246,8 @@ function clickBtn1() {
   Cookies.set('att9_after', result_st, {expires: exp_date});
   //基礎攻撃力
   result_st = numFloor(att_predict101,100)
-  document.getElementById("result10").textContent = result_st;
+  result_st = Math.floor(result_st) //小数点四捨五入
+  document.getElementById("result10").textContent = Number(result_st).toLocaleString();
   Cookies.set('att10_after', result_st, {expires: exp_date});
 }
 
