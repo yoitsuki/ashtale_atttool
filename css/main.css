@@ -92,6 +92,7 @@ input[type="text"] {
   padding: 8px;
   box-sizing: border-box;
   transition: 0.3s;
+  font-size: 150%;
 }
 
 input[type="text"]:focus {
