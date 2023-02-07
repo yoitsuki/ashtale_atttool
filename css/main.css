@@ -84,7 +84,7 @@ table tbody th {
 
 /*Don't forget to add Font Awesome CSS : "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"*/
 input[type="text"] {
-  width: 50%;
+  width: 100%;
   border: 2px solid #aaa;
   border-radius: 4px;
   margin: 8px 0;
