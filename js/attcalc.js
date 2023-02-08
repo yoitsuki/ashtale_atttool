@@ -83,6 +83,7 @@ $('#send_st').click(function(e){
     return e.preventDefault();
   }else{
     clickBtn1();
+    document.getElementById("DateTime").textContent = getNow();
   }
 });
 
@@ -280,4 +281,23 @@ function numRound(value, base) {
 function isNumber(val){
   var pattern = /^([1-9]\d*|0)(\.\d+)?$/;
   return pattern.test(val);
+}
+
+/**
+ * 今日の日時を設定する関数
+ * @return {s} 日付文字列
+ */
+function getNow() {
+	var now = new Date();
+	var year = now.getFullYear();
+	var mon = now.getMonth()+1; //１を足すこと
+	var day = now.getDate();
+	var hour = now.getHours();
+	var min = now.getMinutes();
+	// var sec = now.getSeconds();
+
+	//出力用
+	//var s = year + "年" + mon + "月" + day + "日" + hour + "時" + min + "分" + sec + "秒"; 
+	var s = year + "/" + mon + "/" + day + " " + hour + ":" + min; 
+	return s;
 }
