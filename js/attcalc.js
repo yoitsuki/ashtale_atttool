@@ -294,6 +294,7 @@ function getNow() {
 	var day = now.getDate();
 	var hour = now.getHours();
 	var min = now.getMinutes();
+	min = ( '00' + min ).slice( -2 );
 	// var sec = now.getSeconds();
 
 	//出力用
