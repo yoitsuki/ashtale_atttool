@@ -232,7 +232,7 @@ function clickBtn1() {
   Cookies.set('att6_after', result_st, {expires: exp_date});
   //状態異常与ダメ増
   diam_otr = (att_predict101/att_predict*(at7+at8+at9)-(at8+at9))/at7
-  result_st = numRound(2*(at7*diam_otr-at7)*100, 100);
+  result_st = numRound((at7*diam_otr-at7)*100, 100);
   document.getElementById("result7").textContent = result_st+"%";
   Cookies.set('att7_after', result_st, {expires: exp_date});
   //対高HP与ダメ増
